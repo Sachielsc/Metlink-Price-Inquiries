@@ -2,7 +2,7 @@ require "selenium-webdriver"
 
 #Source: https://github.com/SeleniumHQ/selenium/wiki/Ruby-Bindings
 
-driver = Selenium::WebDriver.for :firefox
+driver = Selenium::WebDriver.for :chrome
 driver.navigate.to "http://google.com"
 
 element = driver.find_element(name: 'q')

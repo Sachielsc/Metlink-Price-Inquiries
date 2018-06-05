@@ -1,4 +1,4 @@
-require_relative 'home_page_object.rb'
+require_relative 'pageObjects/home_page_object.rb'
 
 #define new browser (or driver)
 browser=SiteElement.new("http://demowebshop.tricentis.com/")

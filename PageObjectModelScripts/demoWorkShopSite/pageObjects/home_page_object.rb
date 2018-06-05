@@ -1,5 +1,5 @@
 require 'selenium-webdriver'
-class SiteElement
+class HomePageObject
 
   def initialize(url)
     @driver = Selenium::WebDriver.for :chrome

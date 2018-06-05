@@ -25,6 +25,7 @@ class SiteElement
   end
 
   def close_browser()
+    puts "Closing the driver ..."
     @driver.quit
   end
 

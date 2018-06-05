@@ -15,9 +15,9 @@ driver.navigate.to "http://demowebshop.tricentis.com/"
 
 login_link = wait.until {
   element = driver.find_element(:link, "Log in")
+  puts "Test Passed: Login Link found" if element.displayed?
   element if element.displayed?
 }
-puts "Test Passed: Login Link found" if login_link.displayed?
 login_link.click
 
 #Typing the Email

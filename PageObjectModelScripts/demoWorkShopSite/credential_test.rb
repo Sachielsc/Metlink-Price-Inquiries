@@ -1,7 +1,7 @@
-require_relative 'pageObjects/home_page_object.rb'
+require_relative 'pageObjects/home_page_object'
 
 #define new browser (or driver)
-browser=SiteElement.new("http://demowebshop.tricentis.com/")
+browser=HomePageObject.new("http://demowebshop.tricentis.com/")
 
 #define local variables
 email = "sachielsc@gmail.com"

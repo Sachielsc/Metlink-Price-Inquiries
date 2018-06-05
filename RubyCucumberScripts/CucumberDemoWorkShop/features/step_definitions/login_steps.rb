@@ -1,3 +1,5 @@
+require_relative '../../../../pageObjects/home_page_object'
+
 Given("I navigate to Demo Work Shop homepage") do
   pending # Write code here that turns the phrase above into concrete actions
 end

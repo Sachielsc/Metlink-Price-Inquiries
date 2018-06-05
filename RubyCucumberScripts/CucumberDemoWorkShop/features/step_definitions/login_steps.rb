@@ -1,25 +1,26 @@
-require_relative '../../../../pageObjects/home_page_object'
+require_relative '../../pageObjects/home_page_object'
+require 'selenium-webdriver'
 
 Given("I navigate to Demo Work Shop homepage") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser=HomePageObject.new("http://demowebshop.tricentis.com/")
 end
 
 When("I click the login button on the home page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.login_link.click
 end
 
-When("I type in {string} as my Email") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I type in {string} as my Email") do |email|
+  @browser.email_input_field.send_keys email
 end
 
-When("I type in {string} as my Password") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I type in {string} as my Password") do |pw|
+  @browser.password_input_field.send_keys pw
 end
 
 When("I click the login button on the login page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.login_button.click
 end
 
-Then("I should be able to see my email {string} on the home page") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I should be able to see my email {string} on the home page") do |expected_email|
+  expect(@browser.customer_info.text).to eq(expected_email)
 end

@@ -24,8 +24,12 @@ class HomePageObject
     @driver.find_element(:xpath, "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input")
   end
 
+  def customer_info
+    @driver.find_element(:css, "div.header-links li>a[href='/customer/info']")
+  end
+
   def close_browser
-    puts "Closing DemoWorkShop ..."
+    puts "\nThe login user email is " + customer_info.text + "\nClosing DemoWorkShop ..."
     @driver.quit
   end
 end

@@ -22,4 +22,24 @@ describe HomePageObject do
 
     browser.close_browser
   end
+
+  it "should fail to log in" do
+    email = "sachielsc@gmail.com"
+    password = "scsgdtcy3"
+    home_page_url = "http://demowebshop.tricentis.com/"
+
+    #define new browser (or driver)
+    browser=HomePageObject.new(home_page_url)
+
+    #test steps
+    browser.login_link.click
+    browser.email_input_field.send_keys email
+    browser.password_input_field.send_keys password
+    browser.login_button.click
+
+    #assertion
+    expect(browser.customer_info.text).not_to eq email
+
+    browser.close_browser
+  end
 end

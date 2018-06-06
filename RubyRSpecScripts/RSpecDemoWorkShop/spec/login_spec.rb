@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 require 'rspec'
-require_relative 'pageObjects/home_page_object'
+require_relative '../pageObjects/home_page_object'
 
 describe HomePageObject do
 

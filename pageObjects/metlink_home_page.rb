@@ -50,7 +50,7 @@ class MetlinkHomePage
 
   #Web page operations
   def initialize(url)
-    chrome_driver_path = File.join(File.dirname(__FILE__), '../../../drivers/chromedriver.exe')
+    chrome_driver_path = File.join(File.dirname(__FILE__), '../drivers/chromedriver.exe')
     Selenium::WebDriver::Chrome.driver_path = chrome_driver_path
 
     options = Selenium::WebDriver::Chrome::Options.new

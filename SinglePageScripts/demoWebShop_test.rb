@@ -3,6 +3,8 @@ require "selenium-webdriver"
 #Selenium Cheat Sheet: https://gist.github.com/kenrett/7553278
 
 #Browser/Driver instantiation
+chrome_driver_path = File.join(File.dirname(__FILE__), '../drivers/chromedriver.exe')
+Selenium::WebDriver::Chrome.driver_path = chrome_driver_path
 driver = Selenium::WebDriver.for :chrome
 wait = Selenium::WebDriver::Wait.new(:timeout => 15)
 email_address = "sachielsc@gmail.com"

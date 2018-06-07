@@ -3,6 +3,10 @@ require 'selenium-webdriver'
 class HomePageObject
 
   def initialize(url)
+
+    chrome_driver_path = File.join(File.dirname(__FILE__), '../../../drivers/chromedriver.exe')
+    Selenium::WebDriver::Chrome.driver_path = chrome_driver_path
+
     @driver = Selenium::WebDriver.for :chrome
     @driver.manage.window.maximize
     @driver.navigate.to url

@@ -36,6 +36,10 @@ class MetlinkHomePage
     @driver.find_element(:id, "JourneyPlannerForm_JourneyPlannerForm_action_doForm")
   end
 
+  def new_journey_button
+    @driver.find_element(:id, "clearJourneyPlan")
+  end
+
   def fares_list
     @driver.find_element(:css, "div.fares__list-wrapper")
   end
@@ -81,7 +85,11 @@ class MetlinkHomePage
     show_my_journey_button.click
   end
 
-  def tell_price
-    puts "\nAdult Cash: " + adult_cash.text + "\nChild Cash: " + child_cash.text if @wait.until {fares_list.displayed?}
+  def tell_price(from_location, to_location)
+    puts "\nThe bus price from location A (" + from_location + ") to location B (" + to_location + ") is:\nAdult Cash: " + adult_cash.text + "\nChild Cash: " + child_cash.text if @wait.until {fares_list.displayed?}
+  end
+
+  def clear_journey_plan
+    new_journey_button.click
   end
 end

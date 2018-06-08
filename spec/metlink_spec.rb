@@ -4,20 +4,15 @@ require_relative '../pageObjects/metlink_home_page'
 
 describe MetlinkHomePage do
 
-  #Addresses
-  library_address = "65 Victoria St, Wellington, 6011"
-  museum_address = "55 Cable St, Te Aro, Wellington 6011"
-  target_address = "104 Moorefield Road, Johnsonville, Wellington, New Zealand"
-
-  before(:each) do
+  before(:all) do
     email = "newzealand1126@gmail.com"
     password = "Scsgdtcy3"
     home_page_url = "https://www.metlink.org.nz"
 
-    #Go to the home page
+    # Go to the home page
     @browser = MetlinkHomePage.new(home_page_url)
 
-    #Log in
+    # Log in
     @browser.sign_in_link.click
     @browser.email_input_field.send_keys email
     @browser.password_input_field.send_keys password
@@ -25,12 +20,29 @@ describe MetlinkHomePage do
   end
 
   after(:each) do
-    #Logout and close the browser
+    @browser.clear_journey_plan
+  end
+
+  after(:all) do
+    # Logout and close the browser
     @browser.close_browser
   end
 
-  it "should display the price from target to Museum of New Zealand" do
-    @browser.check_price(target_address, museum_address)
-    @browser.tell_price
+  it "should display the price from Wellington central library to target place" do
+    # Addresses
+    starting_point1 = "65 Victoria St, Wellington, 6011"
+    end_point1 = "104 Moorefield Road, Johnsonville, Wellington, New Zealand"
+
+    @browser.check_price(starting_point1, end_point1)
+    @browser.tell_price(starting_point1, end_point1)
+  end
+
+  it "should display the price from target place to Museum of New Zealand" do
+    # Addresses
+    starting_point2 = "104 Moorefield Road, Johnsonville, Wellington, New Zealand"
+    end_point2 = "55 Cable St, Te Aro, Wellington 6011"
+
+    @browser.check_price(starting_point2, end_point2)
+    @browser.tell_price(starting_point2, end_point2)
   end
 end

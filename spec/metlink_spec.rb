@@ -1,7 +1,3 @@
-require 'selenium-webdriver'
-require 'rspec'
-require_relative '../pageObjects/metlink_home_page'
-
 describe MetlinkHomePage do
 
   before(:all) do

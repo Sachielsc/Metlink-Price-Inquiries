@@ -1,4 +1,5 @@
 require_relative '../pageObjects/metlink_home_page'
+require 'csv'
 
 describe MetlinkHomePage do
 
@@ -15,6 +16,9 @@ describe MetlinkHomePage do
     @browser.email_input_field.send_keys email
     @browser.password_input_field.send_keys password
     @browser.sign_in_button.click
+
+    # extract data from csv file
+    @rows = CSV.read("data/addresses_list.csv")
   end
 
   after(:each) do
@@ -28,8 +32,8 @@ describe MetlinkHomePage do
 
   it "should display the price from Wellington central library to target place" do
     # Addresses
-    starting_point1 = "65 Victoria St, Wellington, 6011"
-    end_point1 = "104 Moorefield Road, Johnsonville, Wellington, New Zealand"
+    starting_point1 = @rows[1][1]
+    end_point1 = @rows[1][2]
 
     @browser.check_price(starting_point1, end_point1)
     @browser.tell_price(starting_point1, end_point1)
@@ -37,8 +41,8 @@ describe MetlinkHomePage do
 
   it "should display the price from target place to Museum of New Zealand" do
     # Addresses
-    starting_point2 = "104 Moorefield Road, Johnsonville, Wellington, New Zealand"
-    end_point2 = "55 Cable St, Te Aro, Wellington 6011"
+    starting_point2 = @rows[2][1]
+    end_point2 = @rows[2][2]
 
     @browser.check_price(starting_point2, end_point2)
     @browser.tell_price(starting_point2, end_point2)

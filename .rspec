@@ -1,4 +1,4 @@
 --require spec_helper
 
 --format html
---out RSpecTestReport/rspec_results.html
+--out rspec_html_reports/original_RSpecTestReport/rspec_results.html

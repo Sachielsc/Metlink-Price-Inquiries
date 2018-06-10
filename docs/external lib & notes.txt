@@ -1,0 +1,2 @@
+rspec_html_formatter:
+https://github.com/kingsleyh/rspec_reports_formatter

@@ -1,4 +1,4 @@
 .idea
 **/debug.log
 **/Gemfile.lock
-**/rspec_html_reports/*.*
+**/rspec_html_reports

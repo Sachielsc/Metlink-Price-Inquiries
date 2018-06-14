@@ -1,16 +1,18 @@
 # Metlink Price Inquiries
 ## External libraries
 
-rspec_html_formatter:
-https://github.com/kingsleyh/rspec_reports_formatter
+I am using a rspec report generator that is not being actively maintained anymore.
 
-CLI command: rspec -f RspecHtmlFormatter .\spec\metlink_spec.rb
+Click [here](https://github.com/kingsleyh/rspec_reports_formatter) to find more.
 
-## Notes
-TODO: Beautify this file
 
-Install bundler and finish the process:
+## Run the test
+In the root folder, type:
 
-gem install bundler
+`rspec -f RspecHtmlFormatter .\spec\metlink_spec.rb`
 
-bundle install --binstubs
+## Install bundler and the required libraries:
+
+`gem install bundler`
+
+`bundle install --binstubs`
